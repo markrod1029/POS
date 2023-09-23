@@ -1,0 +1,61 @@
+.fa-user-circle
+{
+font-size:40px;
+color:#242A33;
+float: right;
+ position: relative;
+top:18px;
+right:60px;
+cursor: pointer;
+}
+
+.searchButton {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #242A33;
+  background: #242A33;
+  color: white;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 18px;
+}
+.fa-search:hover{
+font-size:20px; 
+border: none;
+border-color: #242A33;
+}
+
+#Add-design:hover{
+	background-color: #776969;
+}
+
+.icon-design{
+	text-align: center;
+width: 40px;
+  height: 40px;
+  border: 1px solid #242A33;
+  background: #242A33;
+  color: white;
+  border-radius: 5px 0  0 5px;
+  font-size: 18px;
+
+}
+.fa-user{
+	position: relative;
+	top:6px;
+}
+.fa-lock
+{
+	position: relative;
+	top:6px;
+}
+#login
+{
+position: absolute;
+top:285px;
+left: 174px;
+  background: #242A33;
+  color: white;
+  font-size: 17px;
+  width: 130px;
+}

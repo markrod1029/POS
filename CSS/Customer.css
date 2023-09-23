@@ -1,0 +1,114 @@
+
+.customer-search{
+ float: right;
+  position: relative;
+top:30px;
+right:300px;
+display: flex;
+ box-shadow: 5px 6px 8px black;
+}
+.search-design{
+width:300px;
+height: 40px;
+border: 3px solid #242A33;
+border-radius: 5px 0 0 5px;
+font-size: 15px;
+  outline: none;
+
+}
+
+#Add
+{
+color:white;
+float: right;
+cursor: pointer;
+font-size: 18px;
+position:relative;
+top:7px;
+right:23px;
+border-radius: 45px;
+text-decoration: none;
+}
+#Add-design{
+border-radius:7px;
+background: #242A33;
+width: 180px;
+height:40px;
+color: white;
+	float: right;
+position:relative;
+top:30px;
+left:260px;
+ box-shadow: 5px 6px 8px black;
+}
+
+#active{
+color:white;
+font-size: 22px;
+}
+
+
+.search-design::placeholder{
+font-size: 16px;
+}
+
+
+ /* The Modal */
+
+.modal.custom .modal-dialog {
+position: fixed;
+left: 470px;
+top:50px;
+}
+
+
+.modal-header{
+background: #242A33;
+color:white;
+height: 100px;
+}
+
+.modal-title
+{
+padding: 20px 0 10px 0;
+margin-left: 118px;
+font-size: 30px;
+}
+
+.close
+{
+font-size: 30px;
+position: relative;
+top: -80px;
+color: #fff;
+
+}
+.modal-body
+{
+margin-top: 20px;
+margin-left: 70px;
+font-size: 16px;
+}
+input::placeholder{
+font-size: 16px;
+}
+
+
+.form-control{
+	font-size: 13px;
+}
+input[type="submit"], button[type="close"]
+{
+position: relative;
+left:80px;
+top: 20px;
+background: #242A33;
+color: white;
+font-size: 16px;
+}
+
+.btn-default:hover
+{
+	background-color: #776969;
+	color:white;
+}

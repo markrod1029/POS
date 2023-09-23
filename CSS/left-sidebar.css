@@ -1,0 +1,213 @@
+
+/* top-bar*/
+#top-bar{
+background-color: white;
+  height:80px;
+  width: 100%;
+  box-shadow: 5px 6px 8px black;
+position: fixed;
+}
+#logo{
+  margin-top: 4px;
+  height:60px;
+  cursor: pointer;
+}
+#name{
+  height:55px;
+  position: relative;
+  right:10px;
+  top:10px;
+  cursor: pointer;
+}
+
+
+/*text admin */
+
+
+#admin{
+position: fixed;
+top:18px;
+right:300px;
+font-size: 18px;
+font-family: "Courier New", Courier, monospace; 
+font-weight: bold;
+}
+
+#log-out-design:hover{
+ background-color: #776969;
+}
+
+/*left-sidebar*/
+
+
+
+.left-sidebar{
+background-color: #242A33;
+height:100%;
+width:250px;
+white-space: nowrap;
+  overflow-x: auto; 
+  -webkit-overflow-scrolling: touch;
+  position: fixed;
+  top: 83px;
+
+   box-shadow: 5px 6px 8px black;
+}
+
+ul{
+  margin: 0;
+
+}
+{
+
+}
+nav ul li{
+ list-style: none;
+padding-bottom: 10px;
+padding-top: 25px;+
+
+ transition:0.8s ;
+ position: relative;
+  right:27px;
+  top:10px;
+}
+
+.sidebar-nav ul li a {
+ color: #687384;
+ display: block;
+ font-size: 20px;
+ font-weight: 400px;
+ text-decoration: none;
+ cursor: pointer;
+}
+
+
+nav ul li a:hover{
+	color:white;
+
+}
+/*log out */
+#log-out{
+text-decoration: none;
+color:white;
+position: relative;
+left:22px;
+top: 5px;
+font-size: 20px;
+}
+#log-out-design{
+
+background-color:#242A33;
+width:120px;
+height:45px;
+position: relative;
+left:1200px;
+top: -50px;
+}
+#Dashboard{
+font-size: 50px;
+position: absolute;
+top: 110px;
+left:300px;
+color: white;
+text-shadow: 4px 4px #50555C;
+}
+
+
+
+/*search */
+
+
+.position{
+ float: right;
+  position: relative;
+top:-47px;
+right:130px;
+display: flex;
+}
+.searchTerm{
+width:400px;
+height: 40px;
+border: 3px solid #242A33;
+border-radius: 5px 0 0 5px;
+font-size: 17px;
+  outline: none;
+
+}
+
+.searchTerm:focus{
+  color: #4a5059;
+}
+  .clear{
+    clear: both;
+  }
+
+#nav-body{
+position: absolute;
+left:430px;
+top:240px;
+}
+
+
+
+/*log out */
+#log-out{
+text-decoration: none;
+color:white;
+position: relative;
+left:22px;
+top: 5px;
+font-size: 20px;
+}
+#log-out-design{
+
+background-color:#242A33;
+width:120px;
+height:45px;
+position: relative;
+left:1200px;
+top: -50px;
+}
+#Dashboard{
+font-size: 50px;
+position: absolute;
+top: 110px;
+left:300px;
+color: white;
+text-shadow: 4px 4px #50555C;
+}
+
+
+
+/*search */
+
+
+.position{
+ float: right;
+  position: relative;
+top:-47px;
+right:130px;
+display: flex;
+}
+.searchTerm{
+width:400px;
+height: 40px;
+border: 3px solid #242A33;
+border-radius: 5px 0 0 5px;
+font-size: 17px;
+  outline: none;
+
+}
+
+.searchTerm:focus{
+  color: #4a5059;
+}
+  .clear{
+    clear: both;
+  }
+
+#nav-body{
+position: absolute;
+left:430px;
+top:240px;
+}

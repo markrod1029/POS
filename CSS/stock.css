@@ -1,0 +1,115 @@
+ 
+.product-search{
+ float: right;
+  position: relative;
+top:30px;
+right:300px;
+display: flex;
+ box-shadow: 5px 6px 8px black;
+}
+.search-design{
+width:300px;
+height: 40px;
+border: 3px solid #242A33;
+border-radius: 5px 0 0 5px;
+font-size: 15px;
+  outline: none;
+
+}
+
+
+
+#Add-design{
+	border-radius:7px;
+background: #242A33;
+width: 160px;
+height:40px;
+color: white;
+	float: right;
+position:relative;
+top:30px;
+left:230px;
+ box-shadow: 5px 6px 8px black;
+}
+#Add
+{
+color:white;
+float: right;
+cursor: pointer;
+font-size: 18px;
+position:relative;
+top:7px;
+right:27px;
+border-radius: 45px;
+text-decoration: none;
+}
+
+#active{
+color:white;
+font-size: 21px;
+}
+
+
+/* The Modal */
+
+.modal.custom .modal-dialog {
+position: fixed;
+left: 470px;
+top:50px;
+}
+
+.modal-header{
+background: #242A33;
+color:white;
+height: 100px;
+}
+
+.modal-title
+{
+padding: 20px 0 10px 0;
+margin-left: 118px;
+font-size: 30px;
+}
+
+.close
+{
+font-size: 30px;
+position: relative;
+top: -80px;
+color: #fff;
+
+}
+.modal-body
+{
+margin-top: 10px;
+margin-left: 70px;
+font-size: 15px;
+}
+input::placeholder{
+font-size: 13px;
+}
+
+
+.form-control{
+	font-size: 13px;
+}
+input[type="submit"], button[type="close"]
+{
+position: relative;
+left:80px;
+top: 10px;
+background: #242A33;
+color: white;
+font-size: 16px;
+}
+
+.btn-default:hover
+{
+	background-color: #776969;
+	color:white;
+}
+.form-select{
+height:30px;
+width: 188px;
+border-radius: 3px;
+}

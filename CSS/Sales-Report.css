@@ -1,0 +1,29 @@
+
+.report-search{
+ float: right;
+  position: relative;
+top:30px;
+right:300px;
+display: flex;
+ box-shadow: 5px 6px 8px black;
+}
+.search-design{
+width:300px;
+height: 40px;
+border: 3px solid #242A33;
+border-radius: 5px 0 0 5px;
+font-size: 15px;
+  outline: none;
+
+}
+
+
+.searchTerm:focus{
+  color: #4a5059;
+}
+
+
+#active{
+color:white;
+font-size: 21px;
+}
