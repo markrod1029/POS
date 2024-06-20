@@ -84,7 +84,7 @@ if(!isset($_SESSION['username'])){
 
 <!--Search-->
    
-  <form  action="result_customer.php" method="get" ecntype="multipart/data-form">  
+   <form  action="result_customer.php" method="get" ecntype="multipart/data-form">  
       <div class="customer-search">     
         <input type="text"  name="query" class="search-design" placeholder="Search Customer Name...">
           <button type="submit" name="search" class="searchButton">
@@ -116,32 +116,42 @@ if(!isset($_SESSION['username'])){
 
   
       <!-- Search end here -->
-      
-       <?php
-require('config.php');
-$query="SELECT * FROM customer";
-$result=mysqli_query($db_link, $query);
-while ($row=mysqli_fetch_array($result)){?>
+     <?php
+          include 'config.php';
+          
+          if(isset($_GET['search'])){
+            $query = $_GET['query'];
+
+            $sql = "select * from customer where name like '%$query%' or contact like '%$query%'";
+
+            $result = $db_link->query($sql);
+            if($result->num_rows > 0){
+              while($row1 = $result->fetch_array()){
+    
+            ?>
       
       <tr style="height:25px; ">
-        <td style="border:1px solid #333;text-align: center; "> <?php echo $row['name']; ?> </td>
-        <td style="border:1px solid #333; text-align: center;"> <?php echo $row['address']; ?> </td>
-        <td style="border:1px solid #333; text-align: center;"> <?php echo $row['contact']; ?> </td>
+        <td style="border:1px solid #333;text-align: center; "> <?php echo $row1['name']; ?> </td>
+        <td style="border:1px solid #333; text-align: center;"> <?php echo $row1['address']; ?> </td>
+        <td style="border:1px solid #333; text-align: center;"> <?php echo $row1['contact']; ?> </td>
         <td style="border:1px solid #333; text-align: center;">
 
-          <a href="delete_customer.php?Customer_ID=<?php echo md5($row['Customer_ID']);?>" class="btn btn-danger">
+          <a href="delete_customer.php?Customer_ID=<?php echo md5($row1['Customer_ID']);?>" class="btn btn-danger">
         <span  class="far fa-trash-alt"></span> Delete</a>
         </td>
       </tr>
-   <?php
-}?>
+  <?php
+          
+              }
 
+            }else{
+              echo "<center>No records</center>";
+            }
+          }
+        $db_link->close();
+        ?>
     </table>
     
-  </td>
-  </tr>
-</table>
-
 
 
 

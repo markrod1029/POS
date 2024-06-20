@@ -17,13 +17,13 @@
 <link rel="stylesheet" type="text/css" href="CSS/icon.css">
 
 </head>
+<body style="margin:0; padding:0; background-image:url(images/background.png); font-family: Montserrat,sans-serif; " >
 <?php
 session_start();
 if(!isset($_SESSION['username'])){
   header('location:login.php');
   }
 ?>
-<body style="margin:0; padding:0; background-image:url(images/background.png); font-family: Montserrat,sans-serif; " >
 
 <!-- top bar-->
   <div id="top-bar">
@@ -34,7 +34,7 @@ if(!isset($_SESSION['username'])){
       
       <div id="log-out-design">
       
-        <a id="log-out" href="Login.php"><span> Log Out</span></a>
+        <a id="log-out" href="Logout.php"><span> Log Out</span></a>
       
       </div>
               
@@ -51,7 +51,6 @@ if(!isset($_SESSION['username'])){
                 <button type="button" name="Item" class=" dropdown-toggle" data-toggle="dropdown"><i class="fas fa-glass-whiskey"style="padding-right:10px;"></i>Item<i class="fas fa-angle-down"style="padding-left:8px;" ></i></button>
                   
                   <div class="dropdown-menu">
-                    <a class="dropdown-item" href="Category.php">Category</a>
                     <a class="dropdown-item" href="Product.php">Product</a>
                     <a class="dropdown-item" href="Stock.php">Stock</a>
                   </div>
@@ -70,7 +69,7 @@ if(!isset($_SESSION['username'])){
                 <button type="button" name="Item" class=" dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cogs" style="padding-right:10px;"></i>Setting<i class="fas fa-angle-down"style="padding-left:8px;" ></i></button>
                   
                   <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Log Out</a>
+                    <a class="dropdown-item" href="Logout.php">Log Out</a>
                   </div>
               </div>
             </li>
@@ -81,15 +80,56 @@ if(!isset($_SESSION['username'])){
     
       <form>
           <div class="report-search">
-              
               <input type="text" class="search-design" placeholder="Search Sales-Report...">
                 <button type="submit" class="searchButton">
                   <i class="fa fa-search"></i></button>
-            
           </div>
         </form>
+<table border="0" cellpadding="0" cellspacing="0" align="center" width="78%" style="border:1px solid #242A33;  color:white; position: relative; left: 120px; top:100px; font-size: 17px;">
+    
+     <tr>
+     <th colspan="7" align="center" height="55px" s style="border-bottom:1px solid #033; background-color: #242A33; color:#FFF; text-align: center; font-size: 20px;"> Summary of Sales </th>
+    </tr>
+    
 
-  >
+       <tr height="30px">
+        <th style="border:1px solid #333;text-align: center; "> Date </th>
+        <th  style="border:1px solid #333;text-align: center; "> Customers </th>
+        <th  style="border:1px solid #333;text-align: center; "> Product Sold </th>
+        <th  style="border:1px solid #333;text-align: center; "> Quantity Sold </th>
+        <th  style="border:1px solid #333;text-align: center; "> Amnt Paid </th>
+        <th  style="border:1px solid #333;text-align: center; "> Profit </th>
+      </tr>
+      
+        <!-- Search goes here! -->
+ 
+
+  
+      <!-- Search end here -->
+      
+       <?php
+require('config.php');
+
+$query="SELECT * FROM `sales`";
+$result=mysqli_query($db_link, $query);
+while ($row=mysqli_fetch_array($result)){?>
+      
+      <tr align="center" style="height:35px">
+        <td  style="border:1px solid #333;text-align: center; "> <?php echo $row['dates']; ?> </td>
+        <td  style="border:1px solid #333;text-align: center; "> <?php echo $row['customers']; ?> </td>
+        <td  style="border:1px solid #333;text-align: center; "> <?php echo $row['name']; ?> </td>
+        <td  style="border:1px solid #333;text-align: center; "> <?php echo $row['quantity']; ?> </td>
+        <td  style="border:1px solid #333;text-align: center; ">Php <?php echo $row['total']; ?> </td>
+        <td  style="border:1px solid #333;text-align: center; "> <?php echo $row['profit']; ?> </td>
+      </tr>
+
+
+       
+   <?php
+}?>
+    </table>
+
+
 
 
 </body>

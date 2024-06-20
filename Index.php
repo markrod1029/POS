@@ -18,10 +18,21 @@
 
 </header>
 
-
 <body style="margin:0; padding:0; background-image:url(images/background.png); font-family: Montserrat,sans-serif; " >
 
+<?php
+session_start();
+if(!isset($_SESSION['username'])){
+  header('location:login.php');
+  }
+?>
 
+<?php
+
+if($_SESSION['access']=='cashier'){
+  header('location:Customer1.php');
+  }
+?>
 
 
 <!-- top bar-->
@@ -33,7 +44,7 @@
       
       <div id="log-out-design">
       
-        <a id="log-out" href="Login.php"><span> Log Out</span></a>
+        <a id="log-out" href="Logout.php"><span> Log Out</span></a>
       
       </div>
               
@@ -67,7 +78,7 @@
                 <button type="button" name="Item" class=" dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cogs" style="padding-right:10px;"></i>Setting<i class="fas fa-angle-down"style="padding-left:8px;" ></i></button>
                   
                   <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Log Out</a>
+                    <a class="dropdown-item" href="logout.php">Log Out</a>
                   </div>
               </div>
             </li>
@@ -95,7 +106,7 @@
               <tr>
                 <td><a href="Sales.php"><input type="button" id="b4" class="b-design"></a></td>
                 <td><a href="Sales-Report.php"><input type="button" id="b5" class="b-design"></a></td>
-                <td><a href="home.php"><input type="button" id="b6" class="b-design"></a></td>
+                <td><a href="logout.php"><input type="button" id="b6" class="b-design"></a></td>
             
               </tr>
           </table>

@@ -47,27 +47,12 @@ if(!isset($_SESSION['username'])){
        <nav class="sidebar-nav">
          <ul id="sidebarnav">
           
-           <li > <a href="index.php" ><i class="fas fa-tachometer-alt" style="padding-right:10px;"></i><span>Dashboard</span></a></li>
-            <li> <a  href="Customer.php" ><i class="fas fa-users"  style="padding-right:10px;"></i><span>Customer</span></a></li>
-             <li>  
-              <div class="dropdown">
-                <button type="button" name="Item" class=" dropdown-toggle" data-toggle="dropdown"><i class="fas fa-glass-whiskey"style="padding-right:10px;"></i>Item<i class="fas fa-angle-down"style="padding-left:8px;" ></i></button>
-                  
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="Product.php">Product</a>
-                    <a class="dropdown-item" href="Stock.php">Stock</a>
-                  </div>
-              </div>
-            </li>
-
-            <li> <a  href="Supplier.php" ><i class="fas fa-users"style="padding-right:10px;"></i> <span >Supplier</span></a></li>
-        
-            <li> <a  href="Sales.php" id="active" ><i class="fas fa-shopping-cart" style="padding-right:10px;"></i> <span >Sales</span></a></li>
-        
-            <li> <a  href="Sales-Report.php" ><i class="far fa-chart-bar" style="padding-right:10px;"></i> <span>Sales Report</span></a></li>
-
+            <li> <a  href="Customer1.php"  ><i class="fas fa-users"  style="padding-right:10px;"></i><span>Customer</span></a></li>
             <li>  
-              <div class="dropdown">
+        
+            <li style="position:relative; top: -30px;"> <a  href="Sales1.php" id="active" ><i class="fas fa-shopping-cart" style=" padding-right:10px;"></i> <span >Sales</span></a></li>
+        
+              <li><div class="dropdown" style="position:relative; top: -50px;">
                 <button type="button" name="Item" class=" dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cogs" style="padding-right:10px;"></i>Setting<i class="fas fa-angle-down"style="padding-left:8px;" ></i></button>
                   
                   <div class="dropdown-menu">
@@ -76,16 +61,17 @@ if(!isset($_SESSION['username'])){
               </div>
             </li>
           
+          
           </ul>
         </nav>
     </div>
     
 
-      <form action="result_product.php" method="get" ecntype="multipart/data-form">
+      <form>
           <div class="sales-search">
               
-              <input type="text"  name="query" class="search-design" placeholder="Search Sales...">
-                <button type="submit" name="search" class="searchButton">
+              <input type="text" class="search-design" placeholder="Search Sales...">
+                <button type="submit" class="searchButton">
                   <i class="fa fa-search"></i></button>
             
           </div>
@@ -124,7 +110,7 @@ while ($row=mysqli_fetch_array($result)){?>
         <td style="border:1px solid #333;text-align: center; ">
 
 
-         <a href="process_sales.php?Product_ID=<?php echo md5($row['Product_ID']);?>" class="btn btn-warning" style="width:90px; height:36px; font-size: 18px; border-radius:5px;"><span class="fas fa-arrow-alt-circle-right"></span > Pick</a>
+         <a href="process_sales1.php?Product_ID=<?php echo md5($row['Product_ID']);?>" class="btn btn-warning" style="width:90px; height:36px; font-size: 18px; border-radius:5px;"><span class="fas fa-arrow-alt-circle-right"></span > Pick</a>
 
         </td>
       </tr>

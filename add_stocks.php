@@ -4,7 +4,7 @@ require('config.php');
 
 $name=$_POST['name'];
 $stocks=$_POST['stocks'];
-$dateexpired=$_POST['dateaquired'];
+$dateaquired=$_POST['dateaquired'];
 $dateexpired=$_POST['dateexpired'];
 
 

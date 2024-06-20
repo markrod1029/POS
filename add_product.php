@@ -4,6 +4,7 @@ require('config.php');
 
 $category=$_POST['category'];
 $name=$_POST['name'];
+$quantity=$_POST['quantity'];
 $sellingprice=$_POST['sellingprice'];
 $quantity=$_POST['quantity'];
 

@@ -17,7 +17,7 @@
 <link rel="stylesheet" type="text/css" href="CSS/icon.css">
 
 
-  
+
 </head>
 <body style="margin:0; padding:0; background-image:url(images/background.png); font-family: Montserrat,sans-serif;     overflow: hidden; " >
 <?php
@@ -127,7 +127,7 @@ while ($row=mysqli_fetch_array($result)){?>
         <td style="border:1px solid #333;text-align: center; ">
           
 
-          <a href="process_sales.php?Product_ID=<?php echo md5($erow['Product_ID']);?>" class="btn btn-warning" style="width:90px; height:36px; font-size: 18px; border-radius:5px;"><span class="fas fa-arrow-alt-circle-right"></span > Pick</a>
+          <a href="process_sales1.php?Product_ID=<?php echo md5($erow['Product_ID']);?>" class="btn btn-warning" style="width:90px; height:36px; font-size: 18px; border-radius:5px;"><span class="fas fa-arrow-alt-circle-right"></span > Pick</a>
                   
         </td>
       </tr>
@@ -149,7 +149,7 @@ while ($row=mysqli_fetch_array($result)){?>
           <!-- Modal Header -->
          <div class="modal-header" style="height: 80px;">
           <h2 class="modal-title" style="padding: 0 0 10px 0;margin-left: 178px;font-size: 35px; ">Transaction</h2>
-          <button onClick="location.href='Sales.php'" type="button" class="close" data-dismiss="modal" style="position: relative;top: -70px;">&times;</button>
+          <button onClick="location.href='Sales1.php'" type="button" class="close" data-dismiss="modal" style="position: relative;top: -70px;">&times;</button>
           </div>
 
           <?php
@@ -185,10 +185,10 @@ $row2 = $result->fetch_assoc();
   $insert1 = "UPDATE product set quantity = quantity - '$quant' where md5(Product_ID) = '$ID'";
   $insert = "INSERT INTO sales (dates,customers,category,name,amnt,quantity,total,profit,tendered,changed) VALUES('$dates','$customers','$category','$name','$amount','$quant','$total','$prof','$tendered','$changed')" or die("error".mysqli_errno($db_link));
   $result=mysqli_query($db_link,$insert);
-  if($db_link->query($insert)== TRUE){?>
+  if($db_link->query($insert1)== TRUE){?>
 
   <script type="text/javascript">
-    window.location.href = "Sales.php";
+    window.location.href = "Sales1.php";
 
   </script><?php
   }
@@ -303,27 +303,27 @@ $row2 = $result->fetch_assoc();
     
     <tr>
     <td align="right"  style="position: relative;top:40px;right: 40px;">Total Payable Amount:</td>
-    <td><input type="number" id="txtbox" name="total" value="<?php echo @$total ?>" style="position: relative;top: 40px; right: 20px;" readonly></td>
+    <td><input type="number" id="txtbox" name="total" placeholder="Compute"value="<?php echo @$total ?>" style="position: relative;top: 40px; right: 20px;" readonly></td>
     <td><input type="submit" name="calculate" value="Compute" style="position: relative;top: 41px; left: 0px;" ></td>
     </tr>
     
     <tr>
     <td align="right"  style="position: relative;top:55px;right: 50px;">Profit:</td>
-    <td><input type="number" id="txtbox" name="profit" value="<?php echo @$profit ?>" style="position: relative;top: 55px; right: 20px;" readonly><br></td>
+    <td><input type="number" id="txtbox" name="profit" placeholder="Compute" value="<?php echo @$profit ?>" style="position: relative;top: 55px; right: 20px;" readonly><br></td>
     </tr>
 
     </form>
     
     
     <tr>
-    <td align="right"  style="position: relative;top:70px;right: 50px;">Tendered:</td>
+    <td align="right"  style="position: relative;top:70px;right: 50px;">Customer Money:</td>
     <td><input type="number" id="txtbox" value="<?php echo @$ten ?>" name="tendered" placeholder="Tendered" style="position: relative;top: 70px; right: 20px;"></td>
     <td><input type="submit" value="Calculate" name="sub" style="position: relative;top: 90px;left: 0px;" ></td>
     </tr>
     
     <tr>
     <td  style="position: relative;top:85px;right: 10px;">Return Change:</td>
-    <td><input type="text" id="txtbox" name="changed" value="<?php echo @$change ?>" style="position: relative;top: 85px; right: 20px;" readonly></td>
+    <td><input type="number" id="txtbox" placeholder="Calculate" name="changed" value="<?php echo @$change ?>" style="position: relative;top: 85px; right: 20px;" readonly></td>
     </tr>
     
     </form>
@@ -337,7 +337,7 @@ $row2 = $result->fetch_assoc();
     <td>
     <br>
     <a href="process.php"><input type="SUBMIT" name="update" id="btnnav" value="Add"  style="position: relative;left:-60px;top: 83px;background: #242A33;color: white;font-size: 20px; width: 70px;"></a>
-    <a href="Sales.php"><input type="button" style="position: relative;left:-60px; top: 83px; background: #242A33;color: white;font-size: 20px;" value="Cancel"></a>
+    <a href="Sales1.php"><input type="button" style="position: relative;left:-60px; top: 83px; background: #242A33;color: white;font-size: 20px;" value="Cancel"></a>
     
     </td>
     </tr>

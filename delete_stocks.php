@@ -1,10 +1,10 @@
 <?php
 	include 'config.php';
-	$id = $_GET['Cat_ID'];
-	$sql = "Delete from category where md5(Cat_ID) = '$id'";
+	$id = $_GET['Stocks_ID'];
+	$sql = "Delete from stocks where md5(Stocks_ID) = '$id'";
 	if($db_link->query($sql) === true){
 		echo "Sucessfully deleted data";
-		header('location:Category.php');
+		header('location:Stock.php');
 	}else{
 		echo "Oppps something error ";
 	}

@@ -49,26 +49,13 @@ if(!isset($_SESSION['username'])){
        <nav class="sidebar-nav">
          <ul id="sidebarnav">
           
-            <li > <a href="index.php" ><i class="fas fa-tachometer-alt" style="padding-right:10px;"></i><span>Dashboard</span></a></li>
-            <li> <a  href="Customer.php" id="active" ><i class="fas fa-users"  style="padding-right:10px;"></i><span>Customer</span></a></li>
+            
+            <li> <a  href="Customer1.php" id="active" ><i class="fas fa-users"  style="padding-right:10px;"></i><span>Customer</span></a></li>
             <li>  
-              <div class="dropdown">
-                <button type="button" name="Item" class=" dropdown-toggle" data-toggle="dropdown"><i class="fas fa-glass-whiskey"style="padding-right:10px;"></i>Item<i class="fas fa-angle-down"style="padding-left:8px;" ></i></button>
-                  
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item" href="Product.php">Product</a>
-                    <a class="dropdown-item" href="Stock.php">Stock</a>
-                  </div>
-              </div>
-            </li>
-
-            <li> <a  href="Supplier.php" ><i class="fas fa-users"style="padding-right:10px;"></i> <span >Supplier</span></a></li>
         
-            <li> <a  href="Sales.php" ><i class="fas fa-shopping-cart" style="padding-right:10px;"></i> <span >Sales</span></a></li>
+            <li style="position:relative; top: -30px;"> <a  href="Sales1.php" ><i class="fas fa-shopping-cart" style=" padding-right:10px;"></i> <span >Sales</span></a></li>
         
-            <li> <a  href="Sales-Report.php" ><i class="far fa-chart-bar" style="padding-right:10px;"></i> <span>Sales Report</span></a></li>
-            <li>  
-              <div class="dropdown">
+              <li><div class="dropdown" style="position:relative; top: -50px;">
                 <button type="button" name="Item" class=" dropdown-toggle" data-toggle="dropdown"><i class="fas fa-cogs" style="padding-right:10px;"></i>Setting<i class="fas fa-angle-down"style="padding-left:8px;" ></i></button>
                   
                   <div class="dropdown-menu">
@@ -84,9 +71,9 @@ if(!isset($_SESSION['username'])){
 
 <!--Search-->
    
-  <form  action="result_customer.php" method="get" ecntype="multipart/data-form">  
+   <form  action="result_customer.php" method="get" ecntype="multipart/data-form">  
       <div class="customer-search">     
-        <input type="text"  name="query" class="search-design" placeholder="Search Customer Name...">
+        <input type="text"  name="query" class="search-design" placeholder="Search Customer...">
           <button type="submit" name="search" class="searchButton">
           <i class="fa fa-search"></i></button>     
       </div>
@@ -116,12 +103,19 @@ if(!isset($_SESSION['username'])){
 
   
       <!-- Search end here -->
-      
-       <?php
-require('config.php');
-$query="SELECT * FROM customer";
-$result=mysqli_query($db_link, $query);
-while ($row=mysqli_fetch_array($result)){?>
+     <?php
+          include 'config.php';
+          
+          if(isset($_GET['search'])){
+            $query = $_GET['query'];
+
+            $sql = "select * from customer where name like '%$query%' or contact like '%$query%'";
+
+            $result = $db_link->query($sql);
+            if($result->num_rows > 0){
+              while($row = $result->fetch_array()){
+    
+            ?>
       
       <tr style="height:25px; ">
         <td style="border:1px solid #333;text-align: center; "> <?php echo $row['name']; ?> </td>
@@ -133,15 +127,18 @@ while ($row=mysqli_fetch_array($result)){?>
         <span  class="far fa-trash-alt"></span> Delete</a>
         </td>
       </tr>
-   <?php
-}?>
+  <?php
+          
+              }
 
+            }else{
+              echo "<center>No records</center>";
+            }
+          }
+        $db_link->close();
+        ?>
     </table>
     
-  </td>
-  </tr>
-</table>
-
 
 
 

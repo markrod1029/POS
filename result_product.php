@@ -38,7 +38,7 @@ if(!isset($_SESSION['username'])){
         <a id="log-out" href="Logout.php"><span> Log Out</span></a>
       
       </div>
-              
+               
     <!--left-sidebar-->
     <div class="left-sidebar">
        <nav class="sidebar-nav">
@@ -76,7 +76,7 @@ if(!isset($_SESSION['username'])){
 
   <form action="result_product.php" method="get" ecntype="multipart/data-form">
     <div class="product-search">          
-        <input type="text"  name="query" class="search-design" placeholder="Search Product Name...">
+        <input type="text"  name="query" class="search-design" placeholder="Search Product...">
         <button type="submit" name="search" class="searchButton">
         <i class="fa fa-search"></i></button>       
     </div>
@@ -109,12 +109,19 @@ if(!isset($_SESSION['username'])){
 
   
       <!-- Search end here -->
-      
        <?php
-require('config.php');
-$query="SELECT * FROM product";
-$result=mysqli_query($db_link, $query);
-while ($row=mysqli_fetch_array($result)){?>
+          include 'config.php';
+          
+          if(isset($_GET['search'])){
+            $query = $_GET['query'];
+
+            $sql = "select * from product where category like '%$query%' or name like '%$query%'";
+
+            $result = $db_link->query($sql);
+            if($result->num_rows > 0){
+              while($row = $result->fetch_array()){
+    
+            ?>
       
       <tr align="center" style="height:25px; ">
         <td style="border:1px solid #333;text-align: center; "> <?php echo $row['category']; ?> </td>
@@ -131,19 +138,24 @@ while ($row=mysqli_fetch_array($result)){?>
         <?php include('modal_product.php'); ?>
         </td>
       </tr>
+ 
+
    <?php
-}?>
-      
+          
+              }
+
+            }else{
+              echo "<center>No records</center>";
+            }
+          }
+        $db_link->close();
+        ?>
     </table>
     
-  </td>
-  </tr>
-</table>
-
  <!-- The Modal -->
   <div class="modal custom fade" id="myModal">
     <div class="modal-dialog"  role="document">
-      <div class="modal-content" style="border-radius: 10px; height: 400px; width: 450px;">
+      <div class="modal-content" style="border-radius: 10px; height: 450px; width: 450px;">
       
           <!-- Modal Header -->
           <div class="modal-header">
@@ -178,7 +190,14 @@ while ($row=mysqli_fetch_array($result)){?>
                     <input type="text" name="name" class="form-control" placeholder="Product Name" required>
                 </div>
             </div>   
-  
+
+
+               <div class="form-group row"  style="margin-top:20px; ">
+              <label  class="col-sm-3 col-form-label" >Retail:</label>
+                <div class="col-sm-7">
+                  <input type="number" name="retail" class="form-control"  placeholder="Retail"   required>
+                </div>
+            </div>     
 
 
             <div class="form-group row"  style="margin-top:20px; ">

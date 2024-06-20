@@ -77,9 +77,9 @@ if(!isset($_SESSION['username'])){
 
     <!--Search-->
 
-  <form action="result_stock.php" method="get" ecntype="multipart/data-form">
+   <form action="result_stock.php" method="get" ecntype="multipart/data-form">
     <div class="product-search">          
-        <input type="text" name="query" class="search-design" placeholder="Search Stock...">
+        <input type="text" name="query" class="search-design" placeholder="Search Stock Name...">
         <button type="submit" name="search" class="searchButton">
         <i class="fa fa-search"></i></button>       
     </div>
@@ -114,13 +114,19 @@ if(!isset($_SESSION['username'])){
 
    
       <!-- Search end here -->
-      
-       <?php
-require('config.php');
-$query="SELECT * FROM stocks";
-$result=mysqli_query($db_link, $query);
-while ($row=mysqli_fetch_array($result)){?>
-      
+     <?php
+          include 'config.php';
+          
+          if(isset($_GET['search'])){
+            $query = $_GET['query'];
+
+            $sql = "select * from stocks where name like '%$query%' or contact like '%$query%'";
+
+            $result = $db_link->query($sql);
+            if($result->num_rows > 0){
+              while($row = $result->fetch_array()){
+    
+            ?>
       <tr align="center" style="height:30px; ">
         <td style="border:1px solid #333;text-align: center; "> <?php echo $row['name']; ?> </td>
         <td style="border:1px solid #333;text-align: center; "> <?php echo $row['stocks']; ?> </td>
@@ -134,15 +140,19 @@ while ($row=mysqli_fetch_array($result)){?>
 
         </td>
       </tr>
-   <?php
-}?>
+    <?php
+          
+              }
+
+            }else{
+              echo "<center>No records</center>";
+            }
+          }
+        $db_link->close();
+        ?>
       
     </table>
     
-  </td>
-  </tr>
-</table>
-
 
 
 
@@ -211,3 +221,4 @@ while ($row=mysqli_fetch_array($result)){?>
 
 </body>
 </html>
+

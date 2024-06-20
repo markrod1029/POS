@@ -112,11 +112,19 @@ if(!isset($_SESSION['username'])){
   
       <!-- Search end here -->
       
-       <?php
-require('config.php');
-$query="SELECT * FROM supplier";
-$result=mysqli_query($db_link, $query);
-while ($row=mysqli_fetch_array($result)){?>
+             <?php
+          include 'config.php';
+          
+          if(isset($_GET['search'])){
+            $query = $_GET['query'];
+
+            $sql = "select * from supplier where name like '%$query%' or contact like '%$query%'";
+
+            $result = $db_link->query($sql);
+            if($result->num_rows > 0){
+              while($row = $result->fetch_array()){
+    
+            ?>
       
       <tr align="center" style="height:25px; ">
         <td style="border:1px solid #333;text-align: center; "> <?php echo $row['name']; ?> </td>
@@ -133,8 +141,15 @@ while ($row=mysqli_fetch_array($result)){?>
         </td>
       </tr>
    <?php
-}?>
-      
+          
+              }
+
+            }else{
+              echo "<center>No records</center>";
+            }
+          }
+        $db_link->close();
+        ?>
     </table>
     
   </td>
