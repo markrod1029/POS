@@ -32,11 +32,7 @@ if(!isset($_SESSION['username'])){
     <a href="index.php"> <img id="name" src="images\logo-name.png"></a>
    <span id="admin">Buy 1 Take 1<big> Forever<big></span>
       
-      <div id="log-out-design">
-      
-        <a id="log-out" href="Logout.php"><span> Log Out</span></a>
-      
-      </div>
+    
               
   
       <!--left-sidebar-->
@@ -79,13 +75,13 @@ if(!isset($_SESSION['username'])){
     </div>
     
       <form>
-          <div class="report-search">
+          <div class="report-search"  >
               <input type="text" class="search-design" placeholder="Search Sales-Report...">
                 <button type="submit" class="searchButton">
                   <i class="fa fa-search"></i></button>
           </div>
         </form>
-<table border="0" cellpadding="0" cellspacing="0" align="center" width="78%" style="border:1px solid #242A33;  color:white; position: relative; left: 120px; top:100px; font-size: 17px;">
+<table border="0" cellpadding="0" cellspacing="0" align="center" width="78%" style="border:1px solid #242A33;  color:white; position: relative; left:  320px;; top:100px; font-size: 17px;">
     
      <tr>
      <th colspan="7" align="center" height="55px" s style="border-bottom:1px solid #033; background-color: #242A33; color:#FFF; text-align: center; font-size: 20px;"> Summary of Sales </th>

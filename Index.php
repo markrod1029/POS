@@ -42,12 +42,7 @@ if($_SESSION['access']=='cashier'){
     <a href="index.php"> <img id="name" src="images\logo-name.png"></a>
    <span id="admin">Buy 1 Take 1<big> Forever<big></span>
       
-      <div id="log-out-design">
-      
-        <a id="log-out" href="Logout.php"><span> Log Out</span></a>
-      
-      </div>
-              
+     
   
       <!--left-sidebar-->
     <div class="left-sidebar">
